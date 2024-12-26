@@ -237,5 +237,11 @@ function moveSortableToTarget(node, target, builder) {
         if (builder && node instanceof Rule) {
             builder.setRuleInputValue(node, node.value);
         }
+        if (builder && node instanceof Group) {
+            for (var i = 0; i < node.rules.length; i++) {
+                var rule = node.rules[i];
+                builder.setRuleInputValue(rule, rule.value);
+            }
+        }
     }
 }
